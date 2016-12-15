@@ -18,6 +18,11 @@ class receita(object):
 	#variaveis usadas para incluir os resultados dos calculos em uma lista e fazer a soma final dos valores
 	tmp_proteinas = []
 	tmp_gorduras = []
+	tmp_gorduras_sat = []
+	tmp_fibra = []
+	tmp_sodio = []
+	tmp_carbo = []
+	
 	
 	def __init__(self, nome, porcao):
 		self.nome = nome
@@ -40,17 +45,32 @@ class receita(object):
 			#calcula gorduras
 			calc_gord = ((i[1] * (float(i[0].gorduras)/self.qtd_total)*self.porcao)/100)
 			self.tmp_gorduras.append(calc_gord)
-			
+			calc_gord_sat = ((i[1] * (float(i[0].gorduras_saturadas)/self.qtd_total)*self.porcao)/100)
+			self.tmp_gorduras_sat.append(calc_gord_sat)
+			calc_fibra = ((i[1] * (float(i[0].fibra)/self.qtd_total)*self.porcao)/100)
+			self.tmp_fibra.append(calc_fibra)
+			calc_sodio = ((i[1] * (float(i[0].sodio)/self.qtd_total)*self.porcao)/100)
+			self.tmp_sodio.append(calc_sodio)
+			calc_carbo = ((i[1] * (float(i[0].carboidrato)/self.qtd_total)*self.porcao)/100)
+			self.tmp_carbo.append(calc_carbo)
 			
 		self.proteinas_receita = sum(self.tmp_proteinas)
 		self.gorduras_receita = sum(self.tmp_gorduras)			
+		self.gorduras_saturadas_receita = sum(self.tmp_gorduras_sat)			
+		self.fibra_receita = sum(self.tmp_fibra)
+		self.sodio_receita = sum(self.tmp_sodio)
+		self.carboidrato_receita = sum(self.tmp_carbo)
+
+	def to_string(self):
+		print 'Nome da receita: %s\n Quantidade total: %s\n'%(self.nome,self.qtd_total) 
 		
 		
 		
-			#self.gorduras_receita = ((i[1] * i[0].gorduras)/self.qtd_total)/self.porcao
-			
-#qtd*(valor_ingred/total)*porcao)/100									  
-	
 		
-	
+		
+		
+		
+		
+		
+		
 	

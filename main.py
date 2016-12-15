@@ -6,7 +6,6 @@ import csv, codecs
 from receita import *
 
 
-
 def load_ingredientes():
 	
 	ifile  = codecs.open('nutriLidiBase.csv', 'r')
@@ -36,8 +35,8 @@ if __name__ == '__main__':
 	novareceita = receita("receita teste",50)
 	novareceita.adicionar_ingrediente(lista_ingredientes[1],150)
 	novareceita.adicionar_ingrediente(lista_ingredientes[0],150)
-	#novareceita.adicionar_ingrediente(lista_ingredientes[2],100)
-	
+
+	'''
 	print novareceita.nome
 	
 	novareceita.atualizar_receita()
@@ -49,7 +48,12 @@ if __name__ == '__main__':
 	print novareceita.proteinas_receita
 	print novareceita.gorduras_receita
 	
+	novareceita.to_string()
+	'''
+	for i in lista_ingredientes:
+		print i.titulo
 	
 	
-	print "OK"
+	print 'programa finalizado'
+	
 		
