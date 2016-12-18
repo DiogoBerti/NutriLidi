@@ -3,6 +3,7 @@
 
 class Ingrediente(object):
 	
+	ingrediente_id = 0
 	titulo = ''
 	quantidade = 0
 	proteinas = 0
@@ -13,7 +14,7 @@ class Ingrediente(object):
 	sodio = 0
 	carboidrato = 0
 	
-	def __init__(self, titulo, proteinas, gorduras, gorduras_saturadas, gorduras_trans, fibra, sodio, carboidrato):
+	def __init__(self, titulo, proteinas, gorduras, gorduras_saturadas, gorduras_trans, fibra, sodio, carboidrato, ingrediente_id):
 		self.titulo = titulo
 		self.proteinas = proteinas
 		self.gorduras = gorduras
@@ -22,8 +23,11 @@ class Ingrediente(object):
 		self.fibra = fibra
 		self.sodio = sodio
 		self.carboidrato = carboidrato
+		self.ingrediente_id = ingrediente_id
+	
+	
+		
 
-					
 					
 					
 					

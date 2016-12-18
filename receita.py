@@ -14,6 +14,8 @@ class receita(object):
 	carboidrato_receita = 0
 	porcao = 0
 	qtd_total = 0
+	calorias = 0
+	
 	
 	#variaveis usadas para incluir os resultados dos calculos em uma lista e fazer a soma final dos valores
 	tmp_proteinas = []
@@ -45,8 +47,10 @@ class receita(object):
 			#calcula gorduras
 			calc_gord = ((i[1] * (float(i[0].gorduras)/self.qtd_total)*self.porcao)/100)
 			self.tmp_gorduras.append(calc_gord)
+			#calcula gorduras_saturadas
 			calc_gord_sat = ((i[1] * (float(i[0].gorduras_saturadas)/self.qtd_total)*self.porcao)/100)
 			self.tmp_gorduras_sat.append(calc_gord_sat)
+			# e assim sucessivamente.
 			calc_fibra = ((i[1] * (float(i[0].fibra)/self.qtd_total)*self.porcao)/100)
 			self.tmp_fibra.append(calc_fibra)
 			calc_sodio = ((i[1] * (float(i[0].sodio)/self.qtd_total)*self.porcao)/100)
@@ -63,6 +67,18 @@ class receita(object):
 
 	def to_string(self):
 		print 'Nome da receita: %s\n Quantidade total: %s\n'%(self.nome,self.qtd_total) 
+		
+		
+	def calculo_calorias(self):
+		#aqui é feito o calculo de calorias para a receita.
+		#Deve ser realizado ao final da receita.
+		tempGord = (self.proteinas_receita * 4) + (self.carboidrato_receita * 4) + (self.gorduras_receita * 9)
+		if tempGord >= 100:
+			self.calorias = int(tempGord)
+		elif tempGord >= 10:
+			self.calorias = int(tempGord)
+		else:
+			self.calorias = round(tempGord, 1)
 		
 		
 		
