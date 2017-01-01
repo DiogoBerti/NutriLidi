@@ -26,6 +26,9 @@ class Ingrediente(object):
 		self.ingrediente_id = ingrediente_id
 	
 	
+	def to_string(self):
+		print self.titulo, " :\nProteinas: ", self.proteinas, "\nGorduras: ", self.gorduras,"\nGorduras Saturadas: ", self.gorduras_saturadas
+	
 		
 
 					

@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+import numbers
+
 class receita(object):
 	
 	nome = ''
@@ -42,20 +44,53 @@ class receita(object):
 		
 		for i in self.ingredientes:
 			#calcula proteinas
-			calc_prot = ((i[1] * (float(i[0].proteinas)/self.qtd_total)*self.porcao)/100)
+			if i[0].proteinas is not "NA" or i[0].proteinas is not "Tr" or i[0].proteinas is not "*" :
+				calc_prot = ((i[1] * (float(i[0].proteinas)/self.qtd_total)*self.porcao)/100)
+				print "adicionadas as proteinas: ", calc_prot
+			else:
+				calc_prot = 0
+				
+				
 			self.tmp_proteinas.append(calc_prot)
+			
 			#calcula gorduras
-			calc_gord = ((i[1] * (float(i[0].gorduras)/self.qtd_total)*self.porcao)/100)
+			if i[0].gorduras is not "NA" or i[0].gorduras is not "Tr" or i[0].gorduras is not "*" :
+				calc_gord = ((i[1] * (float(i[0].gorduras)/self.qtd_total)*self.porcao)/100)
+			else:
+				calc_gord = 0
+			
 			self.tmp_gorduras.append(calc_gord)
+			
+			
 			#calcula gorduras_saturadas
-			calc_gord_sat = ((i[1] * (float(i[0].gorduras_saturadas)/self.qtd_total)*self.porcao)/100)
+			if i[0].gorduras_saturadas is not "NA" or i[0].gorduras_saturadas is not "Tr" or i[0].gorduras_saturadas is not "*" :
+				calc_gord_sat = ((i[1] * (float(i[0].gorduras_saturadas)/self.qtd_total)*self.porcao)/100)
+			else:
+				calc_gord_sat = 0
+			
 			self.tmp_gorduras_sat.append(calc_gord_sat)
+			
+						
 			# e assim sucessivamente.
-			calc_fibra = ((i[1] * (float(i[0].fibra)/self.qtd_total)*self.porcao)/100)
+			if i[0].fibra is not "NA" or i[0].fibra is not "Tr" or i[0].fibra is not "*" :
+				calc_fibra = ((i[1] * (float(i[0].fibra)/self.qtd_total)*self.porcao)/100)
+			else:
+				calc_fibra = 0
+				
 			self.tmp_fibra.append(calc_fibra)
-			calc_sodio = ((i[1] * (float(i[0].sodio)/self.qtd_total)*self.porcao)/100)
+			
+			if i[0].sodio is not "NA" or i[0].sodio is not "Tr" or i[0].sodio is not "*" :
+				calc_sodio = ((i[1] * (float(i[0].sodio)/self.qtd_total)*self.porcao)/100)
+			else:
+				calc_sodio = 0
+				
 			self.tmp_sodio.append(calc_sodio)
-			calc_carbo = ((i[1] * (float(i[0].carboidrato)/self.qtd_total)*self.porcao)/100)
+			
+			if i[0].carboidrato is not "NA" or i[0].carboidrato is not "Tr" or i[0].carboidrato is not "*" :
+				calc_carbo = ((i[1] * (float(i[0].carboidrato)/self.qtd_total)*self.porcao)/100)
+			else:
+				calc_carbo = 0
+				
 			self.tmp_carbo.append(calc_carbo)
 			
 		self.proteinas_receita = sum(self.tmp_proteinas)

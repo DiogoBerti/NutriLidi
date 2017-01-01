@@ -15,7 +15,9 @@ def load_ingredientes():
 			
 	for row in reader:
 		params = []
-		params = str(next(reader)).split(";")
+		params = str(row).split(";")
+		
+		
 		lista_ingredientes.append(Ingrediente(params[1].decode('string_escape'),params[2],params[3],params[4],params[5],params[6],params[7],params[8],params[0]))
 			
 	ifile.close()
@@ -36,8 +38,8 @@ def adicionar_ingrediente(lista_ingredientes, titulo, proteinas, gorduras, gordu
 
 
 def gravar_ingredientes(lista_ingredientes):
-	ifile  = codecs.open('nutriLidiBase.csv', 'r')
-	reader = csv.reader(ifile)
+	#ifile  = codecs.open('nutriLidiBase.csv', 'r')
+	#reader = csv.reader(ifile)
 	ofile = open('tempnutriLidiBase.txt', 'w')
 	#writer = writer(ofile)
 	
@@ -59,8 +61,10 @@ if __name__ == '__main__':
 	
 	novareceita = receita("receita teste",50)
 	novareceita.adicionar_ingrediente(lista_ingredientes[1],150)
-	novareceita.adicionar_ingrediente(lista_ingredientes[0],150)
+	novareceita.adicionar_ingrediente(lista_ingredientes[2],150)
 
+	
+	
 	
 	print novareceita.nome
 	
@@ -73,7 +77,6 @@ if __name__ == '__main__':
 	print novareceita.proteinas_receita
 	print novareceita.gorduras_receita
 	
-	novareceita.to_string()
 	
 	novareceita.calculo_calorias()
 	
@@ -81,6 +84,8 @@ if __name__ == '__main__':
 	
 	#for i in lista_ingredientes:
 	#	print i.titulo
+	print lista_ingredientes[2].to_string()
+	#print lista_ingredientes[2].proteinas
 	
 	gravar_ingredientes(lista_ingredientes)
 	print 'programa finalizado'
